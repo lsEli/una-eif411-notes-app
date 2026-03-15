@@ -8,6 +8,7 @@ import cr.ac.una.notesapplication.domain.usecase.note.ObserveAllNotesUseCase
 import cr.ac.una.notesapplication.domain.usecase.note.ObserveNoteByIdUseCase
 import cr.ac.una.notesapplication.domain.usecase.note.UpdateNoteUseCase
 
+
 class AppContainer {
     val noteRepository: INoteRepository = FakeNoteRepository()
     val observeAllNotes = ObserveAllNotesUseCase(noteRepository)

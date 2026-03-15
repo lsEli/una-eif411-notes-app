@@ -15,9 +15,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import cr.ac.una.notesapplication.core.di.AppContainer
 
 
@@ -26,14 +26,9 @@ import cr.ac.una.notesapplication.core.di.AppContainer
 fun NoteEditScreen(
     container: AppContainer, id: Long?, onDone: () -> Unit
 ) {
-    val viewModel = remember(id) {
-        NoteEditViewModel(
-            id = id,
-            observeById = container.observeNoteById,
-            add = container.addNote,
-            update = container.updateNote
-        )
-    }
+    val viewModel: NoteEditViewModel = viewModel(
+        factory = NoteEditViewModelFactory(container, id)
+    )
     val state by viewModel.uiState.collectAsState()
 
     Scaffold(

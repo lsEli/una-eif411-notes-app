@@ -1,11 +1,14 @@
 package cr.ac.una.notesapplication.presentation.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import cr.ac.una.notesapplication.core.app.NotesApp
 import cr.ac.una.notesapplication.presentation.note.list.NoteListScreen
 import cr.ac.una.notesapplication.core.di.AppContainer
 import cr.ac.una.notesapplication.presentation.note.detail.NoteDetailScreen
@@ -13,8 +16,14 @@ import cr.ac.una.notesapplication.presentation.note.edit.NoteEditScreen
 
 
 @Composable
-fun AppNavGraph(container: AppContainer) {
+fun AppNavGraph() {
     val nav = rememberNavController()
+
+    // Tomamos el container desde Application (singleton)
+    val context = LocalContext.current
+    val container = remember(context) {
+        (context.applicationContext as NotesApp).container
+    }
 
     NavHost(navController = nav, startDestination = Routes.LIST) {
         composable(Routes.LIST) {
