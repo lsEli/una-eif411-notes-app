@@ -12,4 +12,9 @@
     <string name="add_note">Add Note</string>
     <string name="search">Search</string>
     <string name="delete">Delete</string>
+    <string name="note_load_error">An error occurred while loading the note</string>
+    <string name="note_save_error">An error occurred while saving the note</string>
+    <string name="notes_load_error">An error occurred while saving the notes</string>
+    <string name="note_delete_error">An error occurred while deleting the note</string>
+    <string name="empty_notes">No notes available</string>
 </resources>

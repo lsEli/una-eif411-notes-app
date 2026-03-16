@@ -1,6 +1,6 @@
-package cr.ac.una.notesapplication.domain.model
+package cr.ac.una.notesapplication.data.remote.dto
 
 
-data class Note(
+class NoteDto(
     val id: Long, val title: String, val content: String, val createdAt: Long, val updatedAt: Long
 )
