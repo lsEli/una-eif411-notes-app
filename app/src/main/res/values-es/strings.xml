@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Aplicación de Notas</string>
+    <string name="title">Título</string>
+    <string name="back">Atrás</string>
+    <string name="edit">Editar</string>
+    <string name="note_not_found">La nota no existe (quizá fue eliminada).</string>
+    <string name="edit_note">Editar nota</string>
+    <string name="new_note">Nueva nota</string>
+    <string name="content">Contenido</string>
+    <string name="save">Guardar</string>
+    <string name="notes">Notas</string>
+    <string name="add_note">Agregar nota</string>
+    <string name="search">Buscar</string>
+    <string name="delete">Eliminar</string>
+</resources>

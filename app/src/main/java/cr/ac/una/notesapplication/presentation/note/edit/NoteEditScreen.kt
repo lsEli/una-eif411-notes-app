@@ -16,9 +16,11 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import cr.ac.una.notesapplication.core.di.AppContainer
+import cr.ac.una.notesapplication.R
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -33,7 +35,7 @@ fun NoteEditScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text(if (state.isEdit) "Editar nota" else "Nueva nota") })
+            TopAppBar(title = { Text(if (state.isEdit) (stringResource(R.string.edit_note)) else stringResource(R.string.new_note)) })
         }) { pad ->
         Column(
             Modifier
@@ -45,7 +47,7 @@ fun NoteEditScreen(
             OutlinedTextField(
                 value = state.title,
                 onValueChange = viewModel::onTitleChange,
-                label = { Text("Título") },
+                label = { Text(stringResource(R.string.title)) },
                 modifier = Modifier.fillMaxWidth()
             )
 
@@ -54,7 +56,7 @@ fun NoteEditScreen(
             OutlinedTextField(
                 value = state.content,
                 onValueChange = viewModel::onContentChange,
-                label = { Text("Contenido") },
+                label = { Text(stringResource(R.string.content)) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(180.dp)
@@ -67,7 +69,7 @@ fun NoteEditScreen(
                 enabled = state.canSave,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Guardar")
+                Text(stringResource(R.string.save))
             }
         }
     }

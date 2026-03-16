@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ノートアプリ</string>
+    <string name="title">タイトル</string>
+    <string name="back">戻る</string>
+    <string name="edit">編集</string>
+    <string name="note_not_found">ノートが存在しません（削除された可能性があります）。</string>
+    <string name="edit_note">ノートを編集</string>
+    <string name="new_note">新しいノート</string>
+    <string name="content">内容</string>
+    <string name="save">保存</string>
+    <string name="notes">ノート</string>
+    <string name="add_note">ノートを追加</string>
+    <string name="search">検索</string>
+    <string name="delete">削除</string>
+</resources>

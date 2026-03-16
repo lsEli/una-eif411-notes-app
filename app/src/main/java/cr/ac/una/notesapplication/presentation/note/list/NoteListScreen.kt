@@ -29,10 +29,12 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import cr.ac.una.notesapplication.core.di.AppContainer
 import cr.ac.una.notesapplication.domain.model.Note
+import cr.ac.una.notesapplication.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,9 +47,9 @@ fun NoteListScreen(
     )
     val state by viewModel.uiState.collectAsState()
 
-    Scaffold(topBar = { TopAppBar(title = { Text("Notas") }) }, floatingActionButton = {
+    Scaffold(topBar = { TopAppBar(title = { Text(stringResource(R.string.notes)) }) }, floatingActionButton = {
         FloatingActionButton(onClick = onAdd) {
-            Icon(Icons.Default.Add, contentDescription = "Agregar")
+            Icon(Icons.Default.Add, contentDescription = stringResource(R.string.add_note))
         }
     }) { pad ->
         Column(
@@ -60,7 +62,7 @@ fun NoteListScreen(
             OutlinedTextField(
                 value = state.query,
                 onValueChange = viewModel::onQueryChange,
-                label = { Text("Buscar") },
+                label = { Text(stringResource(R.string.search)) },
                 modifier = Modifier.fillMaxWidth()
             )
 
@@ -97,10 +99,10 @@ private fun NoteRow(
 
             Row {
                 IconButton(onClick = onEdit) {
-                    Icon(Icons.Default.Edit, contentDescription = "Editar")
+                    Icon(Icons.Default.Edit, contentDescription = stringResource(R.string.edit))
                 }
                 IconButton(onClick = onDelete) {
-                    Icon(Icons.Default.Delete, contentDescription = "Eliminar")
+                    Icon(Icons.Default.Delete, contentDescription = stringResource(R.string.delete))
                 }
             }
         }
